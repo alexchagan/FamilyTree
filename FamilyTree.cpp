@@ -176,10 +176,8 @@ void Tree::print2DUtil(Node *root, int space)
  void Tree::remove(string name)
  {
         Node *node = findNodeByName(_root, name);
-        if (node == nullptr) 
-            throw MyException("No such node in the tree");
-        if (node == _root)
-            throw MyException("Can't remove root");
+        if (node == nullptr || node == _root) 
+            throw MyException("No such node in the tree or the node is the root");
         
         deleteSubtree(node);
  }
