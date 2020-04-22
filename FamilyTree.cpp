@@ -95,13 +95,13 @@ Makes a new 'father' Node object and connects it to a 'child' Node
     Tree::Node* Tree::findNodeByName(Node* node, string name)
     {
         //base conditions for recursion
-        if(node == nullptr)
-         return nullptr;
+        if(node == NULL)
+         return NULL;
         if(node->getName() == name) 
          return node;
         //go over all the nodes in the tree
         Node* found = findNodeByName(node->getFather(),name);
-        if(found != nullptr) 
+        if(found != NULL) 
          return found;
         return findNodeByName(node->getMother(),name);
     }
@@ -112,12 +112,12 @@ Makes a new 'father' Node object and connects it to a 'child' Node
    */
     Tree::Node* Tree::findNodeByRelation(Node* node, string relation)
     {
-        if(node == nullptr)
-         return nullptr;
+        if(node == NULL)
+         return NULL;
         if(node->getRelation() == relation) 
          return node;
         Node* found = findNodeByRelation(node->getFather(),relation);
-        if(found != nullptr) 
+        if(found != NULL) 
          return found;
         return findNodeByRelation(node->getMother(),relation);
     }
@@ -217,7 +217,7 @@ Removes a specific node based on a name and deletes the sub tree starting from t
  void Tree::remove(string name)
  {
         Node *node = findNodeByName(_root, name);
-        if (node == nullptr) 
+        if (node == NULL) 
             throw MyException("No such node in the tree");
         if (node == _root)
             throw MyException("Can't remove root");
@@ -237,14 +237,14 @@ Recursive fuction that deletes the subtree that starts from a node
 */
  void Tree::deleteSubtree(Node* node)  
 {  
-        if (node == nullptr) 
+        if (node == NULL) 
             return;
         deleteSubtree(node->getFather()); //go over all the father nodes
         deleteSubtree(node->getMother()); //go over all the mother nodes
-        node->_father = nullptr; //set father node of every node to null
-        node->_mother = nullptr; // set mother node of every node to null
+        node->_father = NULL; //set father node of every node to null
+        node->_mother = NULL; // set mother node of every node to null
         delete node; // delete the node itself
-        node = nullptr; // set it to null also
+        node = NULL; // set it to null also
 }  
 
 /**
