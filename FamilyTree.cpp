@@ -100,7 +100,7 @@ Makes a new 'father' Node object and connects it to a 'child' Node
         if(node->getName() == name) 
          return node;
         //go over all the nodes in the tree
-        Node* found = findNodeByName(node->getFather(),name);
+        Node* found = findNodeByName(node->getFather(),name); //recurrsion
         if(found != NULL) 
          return found;
         return findNodeByName(node->getMother(),name);
@@ -227,6 +227,7 @@ Removes a specific node based on a name and deletes the sub tree starting from t
          node->_child->_father = NULL;
         if(node == node->_child->_mother)
          node->_child->_mother = NULL;
+          
         
         deleteSubtree(node);
  }
@@ -260,5 +261,22 @@ string Tree::find(string relation)
 }
 
 
+// int main()
+// {
+//     Tree T("Yosef");
+// 	T.addMother("Yosef","Sarah")
+// 	.addFather("Yosef","Adam")
+// 	.addFather("Sarah","Adam")
+// 	.addMother("Adam","Ronit")
+// 	.addFather("Adam", "Tom")
+// 	.addMother("Sarah", "Revital");
+//     cout<< T.relation("Yosef") << endl;
+//     cout <<T.relation("Revital") << endl;
+//     T.display();
+//     T.remove("Sarah");
+//     T.display();
 
+    
+//     return 0;
+// }
 

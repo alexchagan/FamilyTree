@@ -26,6 +26,7 @@ class Tree
    Node* getChild(){return _child;}
    string getRelation(){return _relation;}
    int getHeight(){return _height;}
+   ~Node(){};
 };
 
   
